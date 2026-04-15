@@ -1,98 +1,76 @@
-Overview
+# Jarvis Voice Assistant
 
-Jarvis is a Python-based voice assistant that listens for a wake word (“Jarvis”), processes natural speech, executes system commands, and responds using either predefined actions or Google Gemini AI.
+## Overview
+Jarvis is a Python-based voice assistant built to listen for a wake word, process voice commands, execute system actions, and respond using either predefined commands or Google Gemini AI.
 
-It is designed for hands-free interaction with your computer using voice commands.
+## Features
+- Voice recognition using microphone
+- Wake word activation ("Jarvis")
+- Text-to-speech responses
+- Google Gemini AI integration
+- Screenshot capture with timestamped filenames
+- Custom command system via external module (`commands.py`)
+- Continuous listening loop
+- Random spoken responses for natural interaction
+- Graceful exit using voice command ("exit")
+- Basic error handling for stability
 
-Features
-Wake word detection (“Jarvis”)
-Speech-to-text input using microphone
-Text-to-speech responses
-Google Gemini AI integration for general queries
-Screenshot capture with timestamped filenames
-Custom command system via external module
-Continuous listening loop
-Basic error handling for stable runtime
-Requirements
-Python Version
-Python 3.8 or higher
-Dependencies
+## Requirements
+- Python 3.8 or higher
+- Working microphone
+- Internet connection
 
-Install required packages:
-
+## Installation
+Install required dependencies:
 pip install speechrecognition pyttsx3 pyautogui google-generativeai pyaudio
-Environment Variables
 
+## Environment Setup
 This project requires a Google Gemini API key.
 
-Windows (PowerShell)
+Windows (PowerShell):
 setx GEMINI_API_KEY "your_api_key_here"
-Linux / macOS
-export GEMINI_API_KEY="your_api_key_here"
-Project Structure
+
+Linux / macOS:
+export GEMINI_API_KEY "your_api_key_here"
+
+## Project Structure
 project/
 │
-├── main.py              # Main voice assistant logic
-├── commands.py         # Custom command registry and actions
+├── main.py # Main voice assistant logic
+├── commands.py # Custom command registry and actions
 └── README.md
-How It Works
-The program starts and initializes the speech engine.
-It continuously listens for the wake word “Jarvis”.
-When triggered, it activates command mode.
+
+## How It Works
+The program starts and initializes speech recognition and TTS engine.
+It continuously listens for the wake word "Jarvis".
+When detected, it activates command mode.
 The user speaks a command.
-The system processes the command in this order:
-Checks predefined custom commands
-If no match is found, sends input to Gemini AI
-The assistant speaks the response back to the user.
-Usage
+The system processes input:
+If it matches a predefined command, it executes it.
+Otherwise, it sends the input to Google Gemini AI.
+The response is spoken back to the user.
 
-Run the main script:
-
+## Usage
+Run the program:
 python main.py
 
 Then say:
-
 Jarvis
 
 Followed by your command.
 
-Commands
-
-Custom commands are defined in commands.py.
-
-Example behavior:
-
-System actions (open apps, control system tasks)
-Screenshot capture
-Any user-defined automation
-
-If no command matches, the assistant uses AI to respond.
-
-Exit
-
-To stop the assistant, say:
-
+## Exit
+Say:
 exit
 
-Error Handling
-
-The system handles:
-
-Microphone timeouts
-Speech recognition errors
-API failures from Gemini
-Unexpected runtime exceptions
-Requirements Notes
+## Notes
 Requires a working microphone
-Internet connection required for:
-Speech recognition
-Gemini AI responses
-Future Improvements
-Add GUI interface
-Improve wake word detection accuracy
-Expand command library
-Add offline mode support
-Add multi-language support
-License
+Internet connection is required for speech recognition and AI responses
+The assistant runs continuously until explicitly stopped
 
-This project is open-source and can be modified for personal or educational use.
+## Error Handling
+The system handles:
+Speech recognition failures
+Microphone timeouts
+API errors from Gemini
+Unexpected runtime exceptions
