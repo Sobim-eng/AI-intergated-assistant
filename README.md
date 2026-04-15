@@ -1,18 +1,98 @@
-# 💫 About Me:
-I'm currently studying in Informatics College Pokhara<br>I'm actively learning Python and JAVA <br>
+Overview
 
+Jarvis is a Python-based voice assistant that listens for a wake word (“Jarvis”), processes natural speech, executes system commands, and responds using either predefined actions or Google Gemini AI.
 
-## 🌐 Socials:
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/sobim.shrestha)
+It is designed for hands-free interaction with your computer using voice commands.
 
-# 💻 Tech Stack:
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![Node-RED](https://img.shields.io/badge/Node--RED-%238F0000.svg?style=for-the-badge&logo=node-red&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![Arduino](https://img.shields.io/badge/-Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white) ![Mosquitto](https://img.shields.io/badge/mosquitto-%233C5280.svg?style=for-the-badge&logo=eclipsemosquitto&logoColor=white)
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=Sobim-eng&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
-![](https://nirzak-streak-stats.vercel.app/?user=Sobim-eng&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=Sobim-eng&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+Features
+Wake word detection (“Jarvis”)
+Speech-to-text input using microphone
+Text-to-speech responses
+Google Gemini AI integration for general queries
+Screenshot capture with timestamped filenames
+Custom command system via external module
+Continuous listening loop
+Basic error handling for stable runtime
+Requirements
+Python Version
+Python 3.8 or higher
+Dependencies
 
----
-[![](https://visitcount.itsvg.in/api?id=Sobim-eng&icon=0&color=0)](https://visitcount.itsvg.in)
+Install required packages:
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+pip install speechrecognition pyttsx3 pyautogui google-generativeai pyaudio
+Environment Variables
+
+This project requires a Google Gemini API key.
+
+Windows (PowerShell)
+setx GEMINI_API_KEY "your_api_key_here"
+Linux / macOS
+export GEMINI_API_KEY="your_api_key_here"
+Project Structure
+project/
+│
+├── main.py              # Main voice assistant logic
+├── commands.py         # Custom command registry and actions
+└── README.md
+How It Works
+The program starts and initializes the speech engine.
+It continuously listens for the wake word “Jarvis”.
+When triggered, it activates command mode.
+The user speaks a command.
+The system processes the command in this order:
+Checks predefined custom commands
+If no match is found, sends input to Gemini AI
+The assistant speaks the response back to the user.
+Usage
+
+Run the main script:
+
+python main.py
+
+Then say:
+
+Jarvis
+
+Followed by your command.
+
+Commands
+
+Custom commands are defined in commands.py.
+
+Example behavior:
+
+System actions (open apps, control system tasks)
+Screenshot capture
+Any user-defined automation
+
+If no command matches, the assistant uses AI to respond.
+
+Exit
+
+To stop the assistant, say:
+
+exit
+
+Error Handling
+
+The system handles:
+
+Microphone timeouts
+Speech recognition errors
+API failures from Gemini
+Unexpected runtime exceptions
+Requirements Notes
+Requires a working microphone
+Internet connection required for:
+Speech recognition
+Gemini AI responses
+Future Improvements
+Add GUI interface
+Improve wake word detection accuracy
+Expand command library
+Add offline mode support
+Add multi-language support
+License
+
+This project is open-source and can be modified for personal or educational use.
